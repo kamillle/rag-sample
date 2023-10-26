@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>回答</title>
+</head>
+<body>
+    <h1>質問:</h1>
+    <p>{{ question }}</p>
+    <h1>回答:</h1>
+    <p>{{ response }}</p>
+    <!-- <details><summary>ソース情報:</summary>
+        {% for node in source_nodes %}
+        <li>過去回答: {{ node.text }}</li>
+        <li>score: {{ node.score }}</li>
+        <p>--------------------</p>
+        {% endfor %}
+    </details> -->
+    <h4>回答生成の参考に使用した過去の質問と回答の一覧:</h4>
+    {% for node in source_nodes %}
+    <li>過去の質問と回答: {{ node.text }}</li>
+    <li>score: {{ node.score }}</li>
+    <p>--------------------</p>
+    {% endfor %}
+    <h1>新しい質問をする</h1>
+    <form action="/ask" method="post">
+        <label for="question">質問文を入力してください:</label><br>
+        <textarea name="question" id="question" rows="4" cols="50"></textarea><br><br>
+        <input type="submit" value="検索">
+    </form>
+</body>
+</html>

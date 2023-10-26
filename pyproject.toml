@@ -1,0 +1,32 @@
+[tool.poetry]
+name = "rag-sample"
+version = "0.1.0"
+description = ""
+authors = ["kamillle <32205171+kamillle@users.noreply.github.com>"]
+readme = "README.md"
+# packages = [{include = "rag-sample"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.101.1"
+uvicorn = "^0.23.2"
+llama-index = "0.8.37"
+llama-cpp-python = "^0.2.11"
+jinja2 = "^3.1.2"
+python-multipart = "^0.0.6"
+
+
+[tool.poetry.group.dev.dependencies]
+# .venv への検知が走ってしまうので一旦入れない
+# pyproject-flake8 = "^6.1.0"
+black = "^23.9.1"
+
+[tool.black]
+target-version = ['py310']
+
+[tool.flake8]
+extend-exclude = "./.venv,./node_modules,./.serverless"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
